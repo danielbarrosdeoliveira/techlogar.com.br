@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-text: oklch(24.14% 0.017 42.89);
+	--color-background: oklch(96.85% 0.017 84.59);
+	--color-primary: oklch(57.99% 0.207 17.34);
+	--color-secondary: oklch(50.29% 0.074 246.41);
+	--color-accent: oklch(85.24% 0.031 81.74);
+
+	--font-serif: 'Poltawski Nowy', serif;
+	--font-sans: 'Outfit', sans-serif;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-background text-text font-sans antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		@apply font-serif font-bold;
+	}
+}
