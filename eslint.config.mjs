@@ -23,6 +23,7 @@ export default withNuxt({
 					void: 'always',
 					normal: 'never',
 					component: 'always',
+					slot: 'always',
 				},
 			},
 		],
