@@ -4,9 +4,10 @@
 		class="bg-primary/5 px-4 py-20"
 	>
 		<div class="container mx-auto max-w-6xl">
-			<h2 class="text-text mb-8 text-center font-serif text-3xl font-bold md:text-4xl">
-				Quem Somos
-			</h2>
+			<div class="mb-12 text-center">
+				<h2 class="text-text inline-block font-serif text-5xl font-bold">Quem Somos</h2>
+				<div class="bg-secondary mt-8 h-1 w-32"></div>
+			</div>
 
 			<div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:p-12">
 				<div>

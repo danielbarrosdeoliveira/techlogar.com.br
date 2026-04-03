@@ -4,7 +4,10 @@
 		class="bg-primary/5 px-4 py-20"
 	>
 		<div class="container mx-auto max-w-3xl">
-			<h2 class="text-text mb-4 text-center font-serif text-3xl font-bold md:text-4xl">Contato</h2>
+			<div class="mb-12 text-center">
+				<h2 class="text-text inline-block font-serif text-5xl font-bold">Contato</h2>
+				<div class="bg-secondary mt-8 h-1 w-32"></div>
+			</div>
 
 			<p class="text-text/70 mx-auto mb-10 max-w-2xl text-center font-sans text-lg">
 				Tem alguma dúvida sobre como a tecnologia pode auxiliar seus estudos teológicos ou quer

@@ -1,17 +1,20 @@
 <script setup lang="ts">
-const isScrolled = ref(false);
+const props = withDefaults(
+	defineProps<{
+		menuItems?: { label: string; href: string }[];
+	}>(),
+	{
+		menuItems: () => [
+			{ label: 'Início', href: '#hero' },
+			{ label: 'Sobre', href: '#about' },
+			{ label: 'Criador', href: '#creator' },
+			{ label: 'Contato', href: '#contact' },
+			{ label: 'Blog', href: '/blog' },
+		],
+	}
+);
+
 const isMobileMenuOpen = ref(false);
-
-const menuItems = [
-	{ label: 'Início', href: '#hero' },
-	{ label: 'Sobre', href: '#about' },
-	{ label: 'Criador', href: '#creator' },
-	{ label: 'Contato', href: '#contact' },
-];
-
-const handleScroll = () => {
-	isScrolled.value = window.scrollY > 50;
-};
 
 const toggleMobileMenu = () => {
 	isMobileMenuOpen.value = !isMobileMenuOpen.value;
@@ -20,28 +23,15 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
 	isMobileMenuOpen.value = false;
 };
-
-onMounted(() => {
-	window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-	window.removeEventListener('scroll', handleScroll);
-});
 </script>
 
 <template>
-	<header
-		:class="[
-			'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
-			isScrolled ? 'bg-background/95 shadow-md backdrop-blur-sm' : 'bg-transparent',
-		]"
-	>
+	<header class="bg-background fixed top-0 right-0 left-0 z-50">
 		<nav class="container mx-auto px-4 py-4">
 			<div class="flex items-center justify-between">
 				<a
 					href="#hero"
-					class="text-primary cursor-pointer font-serif text-2xl font-bold"
+					class="text-text cursor-pointer font-serif text-2xl font-bold"
 				>
 					Techlogar
 				</a>
@@ -53,7 +43,7 @@ onUnmounted(() => {
 					>
 						<a
 							:href="item.href"
-							class="text-background hover:text-secondary text-md group relative cursor-pointer font-sans font-bold tracking-wider uppercase transition-colors"
+							class="text-text hover:text-secondary text-md group relative cursor-pointer font-sans tracking-wider uppercase transition-colors"
 						>
 							<span class="relative">
 								{{ item.label }}
@@ -66,7 +56,7 @@ onUnmounted(() => {
 				</ul>
 
 				<button
-					class="text-background p-2 md:hidden"
+					class="text-text p-2 md:hidden"
 					aria-label="Menu"
 					@click="toggleMobileMenu"
 				>
@@ -95,7 +85,7 @@ onUnmounted(() => {
 					>
 						<a
 							:href="item.href"
-							class="text-background hover:text-background group relative block cursor-pointer font-sans font-bold uppercase transition-colors"
+							class="text-text hover:text-secondary group relative block cursor-pointer font-sans font-bold uppercase transition-colors"
 							@click="closeMobileMenu"
 						>
 							<span class="relative">

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-	variant?: 'base' | 'text' | 'outline' | 'solid' | 'primary' | 'danger';
+	variant?: 'base' | 'outline' | 'solid' | 'primary';
 	size?: 'sm' | 'md' | 'lg';
 	loading?: boolean;
 	disabled?: boolean;
@@ -16,16 +16,13 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const baseClasses =
-	'inline-flex items-center justify-center font-serif font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer';
+	'inline-flex items-center justify-center font-sans font-extralight transition-all duration-500 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer';
 
 const variantClasses = {
-	base: 'bg-background text-text border border-text/20 hover:bg-text/10 shadow-sm',
-	text: 'bg-transparent text-text hover:bg-text/10 shadow-none',
-	outline:
-		'bg-transparent border-2 border-primary text-background hover:bg-primary hover:text-background',
-	solid: 'bg-primary text-background hover:opacity-90 shadow-md',
-	primary: 'bg-primary text-background hover:opacity-90 shadow-md',
-	danger: 'bg-red-600 text-white hover:bg-red-700 shadow-md',
+	base: 'bg-background text-text border shadow-sm',
+	outline: 'bg-transparent border-2 border-primary text-white',
+	solid: 'bg-primary text-background shadow-md',
+	primary: 'bg-primary text-background shadow-md',
 };
 
 const sizeClasses = {
