@@ -10,6 +10,7 @@
 A página inicial do blog deve ter:
 
 - Menu no cabeçalho
+  -- Deve usar a mesma estrutura, cores, padrão do HeaderLanding.vue
 - Listagem dos posts
   -- Deve ter: Titulo, Data, Descrição curta de no máximo 3 linhas, Thumbnail, autor, categoria e tema em forma de tags.
 - Deve ter um filtro aside do lado direito
