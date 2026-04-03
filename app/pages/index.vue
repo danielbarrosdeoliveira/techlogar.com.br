@@ -8,7 +8,7 @@ useSeoMeta({
 
 <template>
 	<div>
-		<Header />
+		<HeaderLanding />
 		<HeroLanding />
 		<CardsHeroAboutLanding />
 		<AboutLanding />

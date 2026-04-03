@@ -31,7 +31,7 @@
 					Mande um e-mail e retornarei o mais breve possível.
 				</p>
 
-				<SharedButton
+				<BaseButton
 					variant="primary"
 					size="lg"
 					href="mailto:paz@techlogar.com.br"
@@ -41,7 +41,7 @@
 						class="mr-2 h-5 w-5"
 					/>
 					paz@techlogar.com.br
-				</SharedButton>
+				</BaseButton>
 			</div>
 		</div>
 	</section>

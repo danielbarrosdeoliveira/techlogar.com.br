@@ -2,6 +2,7 @@
 import { menuItems } from '../constants';
 
 const isMobileMenuOpen = ref(false);
+const activeSection = ref('hero');
 
 const toggleMobileMenu = () => {
 	isMobileMenuOpen.value = !isMobileMenuOpen.value;
@@ -10,6 +11,41 @@ const toggleMobileMenu = () => {
 const closeMobileMenu = () => {
 	isMobileMenuOpen.value = false;
 };
+
+let observer: IntersectionObserver | null = null;
+
+onMounted(() => {
+	const sections = menuItems
+		.filter((item) => item.href.startsWith('#'))
+		.map((item) => item.href.substring(1));
+
+	const observerOptions = {
+		root: null,
+		rootMargin: '-50% 0px -50% 0px',
+		threshold: 0,
+	};
+
+	observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				activeSection.value = entry.target.id;
+			}
+		});
+	}, observerOptions);
+
+	sections.forEach((sectionId) => {
+		const element = document.getElementById(sectionId);
+		if (element) {
+			observer!.observe(element);
+		}
+	});
+});
+
+onUnmounted(() => {
+	if (observer) {
+		observer.disconnect();
+	}
+});
 </script>
 
 <template>
@@ -20,7 +56,11 @@ const closeMobileMenu = () => {
 					href="#hero"
 					class="text-text cursor-pointer font-serif text-2xl font-bold"
 				>
-					Techlogar
+					<img
+						src="/images/logo-completa.png"
+						alt="Daniel Oliveira"
+						class="max-w-40 rounded-xl object-cover"
+					/>
 				</a>
 
 				<ul class="hidden items-center gap-8 md:flex">
@@ -30,12 +70,22 @@ const closeMobileMenu = () => {
 					>
 						<a
 							:href="item.href"
-							class="text-text hover:text-secondary text-md group relative cursor-pointer font-sans tracking-wider uppercase transition-colors"
+							:class="[
+								'group relative cursor-pointer font-sans text-sm tracking-wider uppercase transition-colors',
+								activeSection === item.href.substring(1)
+									? 'text-secondary'
+									: 'text-text hover:text-secondary',
+							]"
 						>
 							<span class="relative">
 								{{ item.label }}
 								<span
-									class="bg-primary absolute top-6 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100"
+									:class="[
+										'absolute top-6 left-0 h-0.5 w-full origin-left transition-transform duration-500',
+										activeSection === item.href.substring(1)
+											? 'bg-primary scale-x-100'
+											: 'bg-primary scale-x-0 group-hover:scale-x-100',
+									]"
 								></span>
 							</span>
 						</a>
@@ -72,13 +122,23 @@ const closeMobileMenu = () => {
 					>
 						<a
 							:href="item.href"
-							class="text-text hover:text-secondary group relative block cursor-pointer font-sans font-bold uppercase transition-colors"
+							:class="[
+								'group relative block cursor-pointer font-sans font-bold uppercase transition-colors',
+								activeSection === item.href.substring(1)
+									? 'text-secondary'
+									: 'text-text hover:text-secondary',
+							]"
 							@click="closeMobileMenu"
 						>
 							<span class="relative">
 								{{ item.label }}
 								<span
-									class="bg-secondary absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 transition-transform group-hover:scale-x-100"
+									:class="[
+										'absolute bottom-0 left-0 h-0.5 w-full origin-left transition-transform group-hover:scale-x-100',
+										activeSection === item.href.substring(1)
+											? 'bg-primary scale-x-100'
+											: 'bg-primary scale-x-0',
+									]"
 								></span>
 							</span>
 						</a>

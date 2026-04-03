@@ -21,13 +21,12 @@
 					</p>
 
 					<div class="text-center md:text-start">
-						<SharedButton
+						<BaseButton
 							variant="primary"
-							size="lg"
 							href="/blog"
 						>
-							IR PARA O BLOG
-						</SharedButton>
+							ir para o blog
+						</BaseButton>
 					</div>
 				</div>
 

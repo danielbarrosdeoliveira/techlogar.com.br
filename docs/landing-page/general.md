@@ -9,6 +9,10 @@
 # 2. Planejamento
 
 - Lading Page deve ter:
+  -- Menu:
+  --- Menu deve conter cada seção da Landing page: Hero, Quem Somos?, Idealizador do Projeto e Contato.
+  ---- Sempre que a seção estiver na tela, o item de menu correspondente a seção, deve manter o status ativo.
+
   -- Hero Section:
   --- Título: Tradição Teológica e Inovação Digital
   --- Descrição: Edificando o saber teológico através das ferramentas da era digital. Explore conteúdos profundos, análises técnicas e reflexões bíblicas feitas para o cristão conectado.
@@ -16,7 +20,7 @@
   ---- Left: With Text "IR PARA O BLOG"
   ---- Right: With Text "PEDIR ORAÇÃO"
 
--- 3 cards:
+-- três cards:
 ---- With icon
 ---- Left:
 ----- Título: Exegese e Doutrina
